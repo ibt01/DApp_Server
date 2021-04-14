@@ -1,0 +1,41 @@
+package com.chengxi.person.user.domain;
+
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Slf4j
+@Data
+@Entity
+@Table(name = "User")
+public class UserDomain {
+
+    @Id
+    @Column(name = "id_long")
+    Long idLong;
+
+    @Column(name = "personalinfo_json")
+    String personalInfoJson;
+
+    @Column(name = "txid")
+    String txid;
+
+    @Column(name = "created")
+    private Long created;
+
+    @Column(name = "updated")
+    private Long updated;
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date().getTime();
+        updated = new Date().getTime();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date().getTime();
+    }
+}

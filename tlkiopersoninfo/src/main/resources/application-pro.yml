@@ -1,0 +1,52 @@
+server:
+  servlet.context-path: /yinnipersonal
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1/yinnipersonal?characterEncoding=utf-8&serverTimezone=GMT%2B8&autoReconnect=true
+    username: yinnipersonal
+    password: password
+    tomcat:
+      init-s-q-l: SET NAMES 'utf8mb4'
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  jmx:
+    default-domain: yinnipersonal
+
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+
+redis:
+  database: 4
+  host: 127.0.0.1
+  port: 6379
+  password: password
+  timeout: 0
+
+message:
+  accessKeyId: xx
+  accessKeySecret: xx
+  connectTimeout: 1000
+  readTimeout: 1000
+  signName: xx
+  templateCode: xx
+  size: 5
+
+
+filemanager:
+  fileRootPath: /opt/file/yinnipersonal/
+  urlRootPath: http://127.0.0.1:8080/yinnipersonal/file/readfile/
+
+logging:
+  file:
+    name: /opt/javalog/yinnipersonal/pro.log
+
